@@ -1,7 +1,5 @@
 import $ from "jquery";
-
-console.log("Hi");
-
+import lotso from "./characters/Lotso_red.png"
 
 // Dimensions of the board 8x8 
   const width = 8;
@@ -19,7 +17,7 @@ console.log("Hi");
       fivePoints: 60
     }, 
     characters: [
-      "url(characters/Lotso_red.png)", 
+      `url(${lotso})`, 
       "url(characters/Pooh_yellow.png)", 
       "url(characters/ThreeEyedAlien_green.png)", 
       "url(characters/Genie_blue.png)", 
