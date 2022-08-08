@@ -1,5 +1,10 @@
 import $ from "jquery";
 import lotso from "./characters/Lotso_red.png"
+import pooh from "./characters/Pooh_yellow.png"
+import alien from "./characters/ThreeEyedAlien_green.png"
+import genie from "./characters/Genie_blue.png"
+import ursula from "./characters/Ursula_purple.png"
+import baymax from "./characters/Baymax_white.png"
 
 // Dimensions of the board 8x8 
   const width = 8;
@@ -18,11 +23,11 @@ import lotso from "./characters/Lotso_red.png"
     }, 
     characters: [
       `url(${lotso})`, 
-      "url(characters/Pooh_yellow.png)", 
-      "url(characters/ThreeEyedAlien_green.png)", 
-      "url(characters/Genie_blue.png)", 
-      "url(characters/Ursula_purple.png)", 
-      "url(characters/Baymax_white.png)"
+      `url(${pooh})`, 
+      `url(${alien})`, 
+      `url(${genie})`, 
+      `url(${ursula})`, 
+      `url(${baymax})`
     ], 
     score: 0, 
     board: [
