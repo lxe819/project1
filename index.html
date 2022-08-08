@@ -5,8 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
   </head>
   <body>
+    <div class="container" id="left-portion">
+      <h1 id="page-title">Tsum Tsum Crush</h1>
+      <div id="score-box">Score</div>
+      <div id="instructions">Instructions</div>
+    </div>
+    <div class="container" id="right-portion"></div>
+    <div class="testing">Testing area
+      <div class="box" id="box1" draggable="true" droppable="true"></div>
+      <div class="box" id="box2" draggable="true" droppable="true"></div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
   </body>
