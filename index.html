@@ -8,17 +8,26 @@
     <link rel="stylesheet" href="style.css"/>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="container" id="left-portion">
-      <h1 id="page-title">Tsum Tsum Crush</h1>
-      <div id="score-box">Score</div>
-      <div id="instructions">Instructions</div>
-    </div>
-    <div class="container" id="right-portion"></div>
-    <div class="testing">Testing area
-      <div class="box" id="box1" draggable="true" droppable="true"></div>
-      <div class="box" id="box2" draggable="true" droppable="true"></div>
+    <div class="toFlex">
+      <div class="container" id="left-portion">
+        <h1 id="page-title"><img src="https://shopichigo.com/wp-content/uploads/2020/08/Tsum-Tsum-logo.png" id="logo"/> Crush</h1>
+        <div id="score-box">Score</div>
+        <div id="instructions">
+          <p class="instructions" id="instructionTitle">Instructions</p>
+          <p class="instructions">Click to swap the squares to get 3 / 4 / 5 of the same characters in a row or a column. <br>The goal is to reach 100 points. (:<br><br>Here is the point system. Have fun!</p>
+          <ul class="instructions">
+            <li class="instructions">3 in a row/column --- 3 points</li>
+            <li class="instructions">4 in a row/column --- 4 points</li>
+            <li class="instructions">5 in a row/column --- 5 points</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container" id="right-portion"></div>
     </div>
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
