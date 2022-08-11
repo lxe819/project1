@@ -75,6 +75,8 @@ import baymax from "./characters/Baymax_white.png"
       }
     }
     $("#score-box").text("Score: " + `${game.score}`);
+    $("#insertFirstId").text(`${game.firstClick.firstClickId}`);
+    $("#insertSecondId").text(`${game.secondClick.secondClickId}`)
   }
 
 
@@ -291,6 +293,8 @@ const fillUpSquares = () => {
     fillUpSquares(); 
 
     game.score = 0; 
+    game.firstClick.firstClickId = "none";
+    game.secondClick.secondClickId = "none"
     updateBoard();
   };
 
@@ -320,6 +324,7 @@ const fillUpSquares = () => {
           
           // Saving first click's ID
           game.firstClick.firstClickId = $(event.target)["0"].id; 
+          $("#insertFirstId").text(`${game.firstClick.firstClickId}`);
  
           // Splitting ID string to extract out row number and column number 
           game.firstClick.firstIdSplit = game.firstClick.firstClickId.split(""); 
@@ -337,6 +342,7 @@ const fillUpSquares = () => {
 
           // Saving second click's ID
           game.secondClick.secondClickId = $(event.target)["0"].id; 
+          $("#insertSecondId").text(`${game.secondClick.secondClickId}`);
 
           // Splitting ID string to extract out row number and column number 
           game.secondClick.secondIdSplit = game.secondClick.secondClickId.split(""); 
