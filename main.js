@@ -77,9 +77,6 @@ import baymax from "./characters/Baymax_white.png"
     $("#score-box").text("Score: " + `${game.score}`);
   }
 
-  // const updateScore = () => {
-  //   $("#score-box").text("Score:", game.score);
-  // }
 
 
 /* ============================================================ */
@@ -115,9 +112,6 @@ const checkRows = () => {
   }
 
 }
-
-      
-  // console.log(game.board);
 
 
 
@@ -168,18 +162,6 @@ const checkRows = () => {
 /* FILLING UP the Squares */
 /* ============================================================ */
 
-const testBoard = [
-  [1, 0, 0, 0, 1, 6, 5, 2], 
-  [2, 1, 3, 3, 4, 6, 5, 5], 
-  [4, 5, 6, 3, 5, 1, 4, 7], 
-  [2, 4, 5, 3, 1, 2, 5, 0], 
-  [5, 6, 2, 1, 1, 4, 2, 0], 
-  [1, 1, 2, 4, 1, 2, 2, 0], 
-  [1, 2, 3, 4, 6, 2, 4, 4], 
-  [3, 5, 3, 6, 0, 0, 0, 1]
-]
-
-
 const randomN = () => {
   return Math.floor(Math.random()*game.characters.length)+1;
 }
@@ -203,8 +185,6 @@ const count = () => {
 
 
 
-
-
 const countZero = () => {
   const arrOfZeroes = []; 
   const transposedArr = transpose(game.board); 
@@ -214,44 +194,34 @@ const countZero = () => {
   }
   return arrOfZeroes; 
 }
-// const countZeroArr = countZero();
-// console.log("Count zero array:", countZeroArr);
 
 
 const firstZero = () => {
   const firstZeroIndex = []; 
   const transposedArr = transpose(game.board); 
-  // console.log("Before reverse:", transposedArr);
 
   for (const row of transposedArr){
       row.reverse(); 
   }
-
-  // console.log("After reverse:", transposedArr);
 
   for (const row of transposedArr){
       const firstZero = row.findIndex(element => element === 0);
       // console.log(firstZero);
       firstZeroIndex.push(firstZero)
   }
-  // console.log(firstZeroIndex);
+
   const test = firstZeroIndex.map(x => (width-1)-x);
-  // console.log(test);
+
   return test; 
 
  
 }
-// const firstZeroArr = firstZero(); 
-// console.log("First zero array:", firstZeroArr);
 
 
 const fillUpSquares = () => {
 
   let notDone = true; 
   while (notDone){
-
-    // console.log("Before counting zero:", game.board);
-
 
     const countZeroArr = countZero();
     // console.log("Count zero array:", countZeroArr);
@@ -274,13 +244,11 @@ const fillUpSquares = () => {
           }
       }
     }
-    // console.log("I'm done filling up the squares!");
 
     checkRows(); 
     checkColumns(); 
 
     const test = count(); 
-    // console.log(test);
 
     if (test === 64){
       notDone = false;
@@ -296,11 +264,9 @@ const fillUpSquares = () => {
 
 
 
-
 /* ============================================================ */
 /* CREATING the BOARD */
 /* ============================================================ */
-
 
 // Creating the 8x8 board
   const createSquares = () => {
@@ -313,8 +279,6 @@ const fillUpSquares = () => {
         
         const square = $("<div>").addClass("square").attr("id", "r"+`${i}`+"c"+ `${j}`).css("background-image", game.characters[game.board[i][j]-1]); 
         row.append(square);
-        // console.log(square);
-        // console.log(square);
 
       }
     }
@@ -325,16 +289,12 @@ const fillUpSquares = () => {
     checkColumns(); 
 
     fillUpSquares(); 
-    // updateBoard(); 
-    // console.log("Game board after checks", game.board);
 
     game.score = 0; 
     updateBoard();
   };
 
   createSquares();
-
-  // console.log("Game board after div creation", game.board); 
 
 
 
@@ -354,7 +314,6 @@ const fillUpSquares = () => {
 
 
 
-
     const main = () => {
       $(".square").on("click", (event) => {
         if (game.isLoopDone === true){
@@ -369,12 +328,7 @@ const fillUpSquares = () => {
 
           // Saving first click's image/character
           game.firstClick.firstImg = game.board[game.firstClick.c1RowNum][game.firstClick.c1ColNum]; 
-
-
               console.log("First Clicked ID:", game.firstClick.firstClickId);
-              // console.log("First click image:", game.firstClick.firstImg)
-              // console.log("First click ROW num:", game.firstClick.c1RowNum);
-              // console.log("First click COL num:", game.firstClick.c1ColNum);
 
           // Changing boolean to false so the next click will be identified as second click
           game.isLoopDone = false; 
@@ -392,11 +346,7 @@ const fillUpSquares = () => {
 
           // Saving second click's image/character
           game.secondClick.secondImg = game.board[game.secondClick.c2RowNum][game.secondClick.c2ColNum]; 
-
               console.log("Second Clicked ID:", game.secondClick.secondClickId);
-              // console.log("Second click image", game.secondClick.secondImg);
-              // console.log("Second click ROW num:", game.secondClick.c2RowNum);
-              // console.log("Second click COL num:", game.secondClick.c2ColNum);
               
 
           // Checking to see if second click belongs to either top, bottom, left, or right of first click. 
@@ -418,11 +368,6 @@ const fillUpSquares = () => {
 
             console.log("I'm checked!");
 
-            // Changing boolean to true so the next click will be registered as first click. 
-            // game.isLoopDone = true; 
-
-            // console.log("Game board after a move", game.board);
-
           } else {
 
             // Boolean will remain as false so the next click will still be second click. 
@@ -434,17 +379,6 @@ const fillUpSquares = () => {
         console.log("Your score is:", game.score);
         updateBoard();
 
-        // if (game.score >= 100){
-        //   let userResponse = prompt("You've won! \n If you wish to continue the game, type 'c'. \n If you wish to restart the game, type 'r'."); 
-
-        //   if (userResponse === "c"){
-        //     main(); 
-        //   } else if (userResponse === "r"){
-        //     $("#right-portion").empty(); 
-        //     createSquares(); 
-        //     main(); 
-        //   }
-        // }
 
         if (game.score >= 100){
           alert("You've won! \nClick 'OK' if you wish to restart the game. \nThanks for playing!");
@@ -456,6 +390,4 @@ const fillUpSquares = () => {
       })
     }
     main();
-
-
 
