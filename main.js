@@ -75,8 +75,8 @@ import baymax from "./characters/Baymax_white.png"
       }
     }
     $("#score-box").text("Score: " + `${game.score}`);
-    $("#insertFirstId").text(`${game.firstClick.firstClickId}`);
-    $("#insertSecondId").text(`${game.secondClick.secondClickId}`)
+    $("#insertFirstId").text("Row " + `${game.firstClick.c1RowNum +1}` + " Column " + `${game.firstClick.c1ColNum+1}`);
+    $("#insertSecondId").text("Row " + `${game.secondClick.c2RowNum+1}` + " Column " + `${game.secondClick.c2ColNum+1}`)
   }
 
 
@@ -293,8 +293,10 @@ const fillUpSquares = () => {
     fillUpSquares(); 
 
     game.score = 0; 
-    game.firstClick.firstClickId = "none";
-    game.secondClick.secondClickId = "none"
+    game.firstClick.c1RowNum = -1;
+    game.firstClick.c1ColNum = -1;
+    game.secondClick.c2RowNum = -1;
+    game.secondClick.c2ColNum = -1;
     updateBoard();
   };
 
